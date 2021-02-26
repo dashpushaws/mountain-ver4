@@ -1,19 +1,22 @@
 import React, { useEffect, useCallback, useState } from 'react';
 import { ListItem } from 'react-native-elements'
 import api from '../api/list'
+import { mtnList } from '../shared/mtnList'
+
 
 const SearchList = ({ navigation, keyword }) => {
 
-  const [list, setList] = useState([])
-  const getList = useCallback(async () => {
-    const result = await api.list();
-    console.log(result.data)
-    setList(result.data);
-  }, [])
+  list = mtnList;
+  // const [list, setList] = useState([])
+  // const getList = useCallback(async () => {
+  //   const result = await api.list();
+  //   console.log(result.data)
+  //   setList(result.data);
+  // }, [])
 
-  useEffect(() => {
-    getList();
-  }, [])
+  // useEffect(() => {
+  //   getList();
+  // }, [])
 
   if (keyword && keyword.length > 1) {
     list = list.filter(item => item.title.toLocaleLowerCase().indexOf(keyword.toLocaleLowerCase()) > -1)
