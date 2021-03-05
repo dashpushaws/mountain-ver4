@@ -17,6 +17,8 @@ import DomesticMtn from './DomesticMtn'
 import ForeignMtn from './ForeignMtn'
 import Detail from './Detail'
 import Like from './Like'
+import HWTest from './HWTest'
+
 
 const Tab = createBottomTabNavigator();
 const HomeStack = createStackNavigator();
@@ -90,6 +92,7 @@ export default function Main() {
             <Tab.Screen name="Home" component={HomeStackScreen} />
             <Tab.Screen name="List" component={ListStackScreen} />
             <Tab.Screen name="Like" component={LikeStackScreen} />
+            <Tab.Screen name="HWTest" component={HWTest} />
           </Tab.Navigator>
         </NavigationContainer>
       </SafeAreaProvider>
@@ -116,13 +119,19 @@ const screenOptions = ({ route }) => ({
           ? 'star'
           : 'star-outline'; 
         break;
+      case 'HWTest':
+        iconName = focused
+          ? 'navigate-circle-outline'
+          : 'navigate-circle-sharp'; 
+        break;     
+
     }
     return <Ionicons name={iconName} size={size} color={color} />;
   },
 });
 
 const tabBarOptions= {
-  activeTintColor: '#66ffff',
+  activeTintColor: '#339933',
   inactiveTintColor: 'black',
 }
 
