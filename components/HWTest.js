@@ -48,15 +48,15 @@ const HWTest = () => {
   useEffect(()=>{
     requestPermissions();
 
-    setUpdateIntervalForType(SensorTypes.accelerometer, 1000); // 1000ms
-    const subscription = accelerometer.subscribe(({ x, y, z, timestamp }) =>
-      console.log({ x, y, z, timestamp })
-    );
+    // setUpdateIntervalForType(SensorTypes.accelerometer, 1000); // 1000ms
+    // const subscription = accelerometer.subscribe(({ x, y, z, timestamp }) =>
+    //   console.log({ x, y, z, timestamp })
+    // );
 
     // unmounting 됐을 실행되는 clean-up 함수
-    return (()=> {
-      subscription.remove();
-    })
+    // return (()=> {
+    //   subscription.remove();
+    // })
 
   }, [])  
   // useEffect(... return ..., []): 마운트될때 ...실행, 언마운트될때 retunr 실행 
